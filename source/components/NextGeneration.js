@@ -1,35 +1,33 @@
 import React, {Component} from "react";
 import Handler from "./Handler.js";
 
-const grid = [0, 1, 0];
-
 class NextGeneration extends Component{
 	state={
-		nextGeneration: []
+		nextGeneration: [[], [], [], [], []]
 	}
-	activateNextGeneration = () => {
+	showNextGeneration = () => {
 		const {getNextGrid} = this.props;
 		const {nextGeneration} = this.state;
 		getNextGrid(nextGeneration);
 	}
-	updateGrid = (val, index) => {
+	updateGrid = (val, i, j) => {
 		const {nextGeneration} = this.state;
-		nextGeneration[index] = val;
-		setState({
-			nextGeneration: nextGeneration
-		});
+			nextGeneration[i][j] = val;
 	}
 	calculateEach = () => {
-		return grid.map((val, index) => {
-			return <Handler state={val} index={index} updateGrid={this.updateGrid}/>
-		})
+		const {grid} = this.props;
+		return grid.map((row, i) => {
+		  return row.map((val, j) => {
+			return <Handler state={val} jIndex={j} iIndex={i} updateGrid={this.updateGrid}/>
+		  });	
+		});
 	}
 	
 	render(){
-	  //const {grid} = this.props;
 	  return(
         <div>
-		  <button onClick={this.activateNextGeneration} ></button>		
+		  <button onClick={this.showNextGeneration} ></button>	
+		  {this.calculateEach()}		  
 	    </div>
 	  );	
 	}
