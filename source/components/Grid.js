@@ -12,8 +12,9 @@ const gridCells = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 
 
 class Grid extends Component{	
 	generateRows = (grid) => {
-		return grid.map((row) => {
-			return <Row 
+		return grid.map((row, i) => {
+			return <Row
+              key={i}			
 			  rowOfCells={row}
 			  numberOfRows={grid.length}
 			/>

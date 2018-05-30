@@ -15,8 +15,9 @@ class Row extends Component{
 	}
 	generateCells = () => {
 	    const {rowOfCells} = this.props;
-		return rowOfCells.map((cell) => {
+		return rowOfCells.map((cell, j) => {
 			return <Cell 
+			  key={j}
 			  state={cell}
 			  numberOfColumns={rowOfCells.length}
 			/>

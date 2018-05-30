@@ -1,25 +1,46 @@
 import React, {Component} from "react";
 
 class Handler extends Component{
+    
 
+	sumOfNeighbours = () => {
+		const {grid, jIndex, iIndex} = this.props;
+		const i = iIndex, j = jIndex;
+		  let sum = 0;
+		  for(let x = -1; x < 2; x++){
+			for(let y = -1; y < 2; y++){
+				//it verifies if none of the indexes are less than zero 
+				//or greater than the array's length 
+				if(
+				  ((i+x) >= 0 && (i+x) < grid.length )&&
+				  ((j+y) >= 0 && (j+y) < grid[i].length)&&
+                  (x!=0 || y!=0)				  
+				){
+				  sum += grid[i+x][j+y];
+				}
+		    } 
+		  }
+		console.log(sum)
+		return sum;
+	}
+	
 	render(){
-        const {state, iIndex, jIndex, updateGrid, sumOfNeighbours} = this.props;
-		let newState = 0; 
-         //console.log(sumOfNeighbours)
+        const {cellValue, iIndex, jIndex, updateGrid} = this.props;
+		let newCellValue = 0; 
+         var coe = this.sumOfNeighbours();
 		//if(sumOfNeighbours<2){
-			//newState = 0;
+			//newCellValue = 0;
 		//}
 		/*else if(sumOfNeighbours==3){
-			newState = 0;
+			newCellValue = 0;
 		}
 		else if(sumOfNeighbours>3){
-			newState = 0;
+			newCellValue = 0;
 		}*/
 		//else{
-			if(state==0)newState = 1;
-			else if(state==1) newState = 0;
+			newCellValue = cellValue;
 		//}
-		updateGrid(newState, iIndex, jIndex);	
+		updateGrid(newCellValue, iIndex, jIndex);	
 	  
 	  return <div></div>;
 	}
