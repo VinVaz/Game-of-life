@@ -8,18 +8,22 @@ const GridStyle = {
     padding: "0.1px"
 }
 
-const gridCells = [[1, 0, 0, 1], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 0]]
+const gridCells = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
 
 class Grid extends Component{	
 	generateRows = (grid) => {
-		return gridCells.map((row) => {
-			return <Row rowOfCells={row}/>
+		return grid.map((row) => {
+			return <Row 
+			  rowOfCells={row}
+			  numberOfRows={grid.length}
+			/>
 		});
 	}
 	render(){
+	  const {grid} = this.props;
 	  return(
         <div style={GridStyle}>
-			{this.generateRows(gridCells)}		
+			{this.generateRows(grid)}		
 	    </div>
 	  );	
 	}

@@ -1,22 +1,30 @@
 import React, {Component} from "react";
 import Cell from "./Cell.js";
 
-const RowStyle = {
-	height: "25%",
-	width: "100%",
-	display: "block"
-}
 
-class Row extends Component{
+class Row extends Component{ 
+	getStyle = () => {
+	  const {numberOfRows} = this.props; 
+	  const myHeight = (100 / numberOfRows) + "%";
+	  const rowStyle = {
+	    height: myHeight,
+	    width: "100%",
+	    display: "block"
+      }
+	  return rowStyle;
+	}
 	generateCells = () => {
 	    const {rowOfCells} = this.props;
 		return rowOfCells.map((cell) => {
-			return <Cell state={cell}/>
+			return <Cell 
+			  state={cell}
+			  numberOfColumns={rowOfCells.length}
+			/>
 		});
 	}
 	render(){
 	  return(
-        <div style={RowStyle}>
+        <div style={this.getStyle()}>
 			{this.generateCells()}
 		</div>
 	  );	

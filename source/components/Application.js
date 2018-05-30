@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Grid from "./Grid.js";
+import Generation from "./Generation.js";
 
 const ApplicationStyle = {
 	margin: "0px",
@@ -11,7 +11,7 @@ class Application extends Component{
 	render(){
 	  return(
         <div style={ApplicationStyle}>
-          <Grid/>		
+          <Generation />		
 	    </div>
 	  );	
 	}

@@ -1,10 +1,5 @@
 import React, {Component} from "react";
 
-const CellContainerStyle = {
-	height: "100%",
-	width: "25%",
-	display: "inline-block"
-}
 const AliveCellStyle = {
 	backgroundColor: "#ababab",
 	height: "100%",
@@ -12,6 +7,18 @@ const AliveCellStyle = {
 }
 
 class Cell extends Component{
+	
+	getCellContainerStyle = () => {
+	  const {numberOfColumns} = this.props;
+      const myWidth = (100 / numberOfColumns) + "%";	  
+	  const containerStyle = {
+	    height: "100%",
+	    width: myWidth,
+	    display: "inline-block"
+	  }
+		return containerStyle 
+	}
+	
     setCellState = () => {
 		const {state} = this.props;
 		if(state){
@@ -22,9 +29,10 @@ class Cell extends Component{
 		  return null;
 		}
 	}
+	
 	render(){
 	  return(
-        <div style={CellContainerStyle}>
+        <div style={this.getCellContainerStyle()}>
 			{this.setCellState()}
 		</div>
 	  );	
