@@ -10,7 +10,8 @@ class Row extends Component{
 	    height: myHeight,
 	    width: "100%",
 	    display: "block",
-        paddingLeft: "1px"
+		position: "relative",
+		left: "0px",
       }
 	  return rowStyle;
 	}

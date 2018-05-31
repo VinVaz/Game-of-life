@@ -4,13 +4,13 @@ const AliveCellStyle = {
 	backgroundColor: "#f00",
 	height: "100%",
 	width: "100%",
-	border: "1px solid #fff"
+	border: "1px solid #200"
 }
 const DeadCellStyle = {
 	backgroundColor: "#440304",
 	height: "100%",
 	width: "100%",
-	border: "1px solid #fff"
+	border: "1px solid #200"
 }
 
 class Cell extends Component{

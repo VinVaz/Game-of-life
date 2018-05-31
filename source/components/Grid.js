@@ -2,10 +2,9 @@ import React, {Component} from "react";
 import Row from "./Row.js";
 
 const GridStyle = {
-	backgroundColor: "#000",
 	height: "400px",
 	width: "400px",
-    paddingBottom: "1px",
+	position: "relative"
 }
 
 
