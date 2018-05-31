@@ -8,7 +8,11 @@ class NextGeneration extends Component{
 	}
 	showNextGeneration = () => {
 		const {getNextGrid} = this.props;
-		const {nextGeneration} = this.state;
+		const {nextGeneration, lastGeneration} = this.state;
+		this.setState({
+		  lastGeneration: nextGeneration,
+		  nextGeneration: []
+		});
 		getNextGrid(nextGeneration);
 	}
 	updateGrid = (val, i, j) => {

@@ -9,7 +9,7 @@ class Handler extends Component{
 		  let sum = 0;
 		  for(let x = -1; x < 2; x++){
 			for(let y = -1; y < 2; y++){
-				//it verifies if none of the indexes are less than zero 
+				//it checks if none of the indexes are less than zero 
 				//or greater than the array's length 
 				if(
 				  ((i+x) >= 0 && (i+x) < grid.length )&&
@@ -27,19 +27,20 @@ class Handler extends Component{
 	render(){
         const {cellValue, iIndex, jIndex, updateGrid} = this.props;
 		let newCellValue = 0; 
-         var coe = this.sumOfNeighbours();
-		//if(sumOfNeighbours<2){
-			//newCellValue = 0;
-		//}
-		/*else if(sumOfNeighbours==3){
+        let sumOfNeighbours = this.sumOfNeighbours();
+		
+		if(sumOfNeighbours<2){
 			newCellValue = 0;
+		}
+		else if(sumOfNeighbours==3){
+			newCellValue = 1;
 		}
 		else if(sumOfNeighbours>3){
 			newCellValue = 0;
-		}*/
-		//else{
+		}
+		else{
 			newCellValue = cellValue;
-		//}
+		}
 		updateGrid(newCellValue, iIndex, jIndex);	
 	  
 	  return <div></div>;
