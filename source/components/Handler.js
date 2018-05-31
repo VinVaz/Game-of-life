@@ -20,7 +20,6 @@ class Handler extends Component{
 				}
 		    } 
 		  }
-		console.log(sum)
 		return sum;
 	}
 	

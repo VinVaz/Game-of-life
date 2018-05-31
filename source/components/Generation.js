@@ -2,13 +2,23 @@ import React, {Component} from "react";
 import Grid from "./Grid.js";
 import NextGeneration from "./NextGeneration.js";
 
-const gridCells = [[0, 0, 0, 0, 0], [0, 0, 1, 1, 0], [0, 0, 1, 1, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
 
-
+function arrayGenerator(){
+  const width = 50, height = 50;
+  let myArray = [];
+  
+  for(let i=0; i<height; i++){
+	myArray[i] = [];
+	for(let j=0; j<width; j++){
+	  myArray[i][j] = Math.floor(Math.random()*2);
+    }
+  }
+  return myArray;  
+}
 
 class Generation extends Component{
     state = {
-		grid: gridCells
+		grid: arrayGenerator()
 	}
 	getNextGrid = (nextGrid) => {
 		this.setState({

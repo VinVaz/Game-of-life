@@ -20,6 +20,10 @@ class NextGeneration extends Component{
 			nextGeneration[i][j] = val;
 	}
 	
+	componentDidMount(){
+		let myVar = setInterval(this.showNextGeneration.bind(this), 300)
+	}
+	
 	calculateEach = () => {
 		const {nextGeneration, lastGeneration} = this.state;
 		return lastGeneration.map((row, i) => {
@@ -40,7 +44,6 @@ class NextGeneration extends Component{
 	render(){
 	  return(
         <div>
-		  <button onClick={this.showNextGeneration} ></button>	
 		  {this.calculateEach()}		  
 	    </div>
 	  );	

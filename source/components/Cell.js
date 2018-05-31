@@ -1,9 +1,16 @@
 import React, {Component} from "react";
 
 const AliveCellStyle = {
-	backgroundColor: "#ababab",
+	backgroundColor: "#f00",
 	height: "100%",
-	width: "100%"
+	width: "100%",
+	border: "1px solid #fff"
+}
+const DeadCellStyle = {
+	backgroundColor: "#440304",
+	height: "100%",
+	width: "100%",
+	border: "1px solid #fff"
 }
 
 class Cell extends Component{
@@ -26,7 +33,9 @@ class Cell extends Component{
 		    <div style={AliveCellStyle}></div>
 		  );
 		} else { 
-		  return null;
+		  return(
+		    <div style={DeadCellStyle}></div>
+		  );
 		}
 	}
 	

@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import Generation from "./Generation.js";
 
 const ApplicationStyle = {
-	margin: "0px",
-	padding: "0px"
+	margin: "0.1px",
 }
 
 class Application extends Component{

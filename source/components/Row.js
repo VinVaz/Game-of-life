@@ -9,7 +9,8 @@ class Row extends Component{
 	  const rowStyle = {
 	    height: myHeight,
 	    width: "100%",
-	    display: "block"
+	    display: "block",
+        paddingLeft: "1px"
       }
 	  return rowStyle;
 	}
